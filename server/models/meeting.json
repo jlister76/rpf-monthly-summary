@@ -1,0 +1,81 @@
+{
+  "name": "meeting",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "email": {
+      "type": "string"
+    },
+    "fname": {
+      "type": "string"
+    },
+    "lname": {
+      "type": "string"
+    },
+    "meeting_datetime": {
+      "type": "date",
+      "required": true
+    },
+    "location_name": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "cross_street": {
+      "type": "string",
+      "default": null
+    },
+    "town": {
+      "type": "string",
+      "required": true
+    },
+    "heath_report": {
+      "type": "number",
+      "required": true
+    },
+    "facility": {
+      "type": "string",
+      "required": true
+    },
+    "locate_technician": {
+      "type": "string",
+      "required": true
+    },
+    "team_leader": {
+      "type": "string",
+      "required": true
+    },
+    "team_leader_email": {
+      "type": "string",
+      "required": true
+    },
+    "schedule_status": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+
+    }
+
+  ],
+  "methods": {}
+}

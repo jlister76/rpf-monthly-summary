@@ -1,0 +1,27 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  }, "replication": {
+  "dataSource": "mssql"
+},
+  "Email": {
+    "dataSource": "email"
+  },
+  "appuser": {
+    "dataSource": "mssql"
+  },
+  "meeting": {
+    "dataSource": "mssql"
+  }
+}

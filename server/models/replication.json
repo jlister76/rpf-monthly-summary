@@ -1,0 +1,128 @@
+{
+  "name": "replication",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "replication_date": {
+      "type": "date",
+      "required": true
+    },
+    "atmos_employee": {
+      "type": "string",
+      "required": true
+    },
+    "atmos_employeeId": {
+      "type": "number",
+      "required": true
+    },
+    "team_leader": {
+      "type": "string",
+      "required": true
+    },
+    "team_leader_email": {
+      "type": "string",
+      "required": true
+    },
+    "locate_technician": {
+      "type": "string",
+      "required": true
+    },
+    "heath_report": {
+      "type": "number",
+      "required": true
+    },
+    "facility": {
+      "type": "string",
+      "required": true
+    },
+    "location": {
+      "type": "string",
+      "required": true
+    },
+    "cross_street": {
+      "type": "string"
+    },
+    "town": {
+      "type": "string",
+      "required": true
+    },
+    "isReplicated": {
+      "type": "string",
+      "required": true
+    },
+    "atmos_determination": {
+      "type": "string",
+      "required": true
+    },
+    "corrective_actions": {
+      "type": "string",
+      "default": null
+    },
+    "able_to_locate": {
+      "type": "string",
+      "default": null
+    },
+    "is_line_marked": {
+      "type": "string",
+      "default": null
+    },
+    "atmos_comments": {
+      "type": "string"
+    },
+    "heath_comments": {
+      "type": "string"
+    },
+    "video_url": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "find"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "create"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "sendemail"
+    },
+    {
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "sendResponse"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+
+    }
+  ],
+  "methods": {}
+}

@@ -48,7 +48,8 @@ module.exports = (app)=>{
           corrective_actions: repl.corrective_actions,
           able_to_locate: repl.able_to_locate,
           is_line_marked: repl.is_line_marked,
-          atmos_comments: repl.atmos_comments
+          atmos_comments: repl.atmos_comments,
+          atmos_report: repl.atmos_report
         };
         data.push(replication);
       });
@@ -70,7 +71,8 @@ module.exports = (app)=>{
           'corrective_actions',
           'able_to_locate',
           'is_line_marked',
-          'atmos_comments'
+          'atmos_comments',
+          'atmos_report'
         ];
         let fieldNames = [
           'Date',
@@ -87,13 +89,25 @@ module.exports = (app)=>{
           'Corrective Actions',
           'Able To Locate',
           'Marked',
-          'Comments'
+          'Comments',
+          'Leak Number'
         ];
         let result = json2csv({data:data, fields: fields, fieldNames: fieldNames});
         //let renderer = loopback.template(path.resolve(__dirname, '../../server/views/email-template.ejs'));
         //let html_body = renderer(messageVars);
         app.models.Email.send({
-          to: ['j.lister@heathus.com'],
+          to: ['j.lister@heathus.com',
+            'e.parsley@heathus.com',
+            'f.pinales@heathus.com',
+            'd.durrett@heathus.com',
+            'm.minaz@heathus.com',
+            'julie.presley@atmosenergy.com',
+            'alexander.holliness@atmosenergy.com',
+            'melanie.rheingans@atmosenergy.com',
+            'shari.warren@atmosenergy.com',
+            'john.scheller@atmosenergy.com',
+            'marlo.sutton@atmosenergy.com'
+          ],
           from: 'locateATMOS@heathus.com',
           subject: 'Replication Monthly Summary',
           attachments: [{'filename': previousMonth + ' Replications.csv', 'content': result}],
